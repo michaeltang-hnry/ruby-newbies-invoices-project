@@ -4,10 +4,10 @@ one:
   invoice: one
   description: MyString
   quantity: 1
-  cost: 9.99
+  per_cost: 9.99
 
 two:
   invoice: two
   description: MyString
   quantity: 1
-  cost: 9.99
+  per_cost: 9.99
