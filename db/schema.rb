@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_12_08_213315) do
+ActiveRecord::Schema[8.1].define(version: 2025_12_08_213037) do
   create_table "clients", force: :cascade do |t|
     t.string "company"
     t.datetime "created_at", null: false
-    t.string "email"
-    t.string "name"
+    t.string "email", null: false
+    t.string "name", null: false
     t.datetime "updated_at", null: false
   end
 
@@ -30,15 +30,12 @@ ActiveRecord::Schema[8.1].define(version: 2025_12_08_213315) do
   end
 
   create_table "invoices", force: :cascade do |t|
-    t.integer "client_id", null: false
     t.datetime "created_at", null: false
     t.string "identifier", null: false
     t.decimal "total", precision: 10, scale: 2, default: "0.0"
     t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_invoices_on_client_id"
     t.index ["identifier"], name: "index_invoices_on_identifier", unique: true
   end
 
   add_foreign_key "invoice_items", "invoices"
-  add_foreign_key "invoices", "clients"
 end
