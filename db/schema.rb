@@ -12,10 +12,10 @@
 
 ActiveRecord::Schema[8.1].define(version: 2025_12_08_012416) do
   create_table "invoice_items", force: :cascade do |t|
-    t.decimal "cost", precision: 10, scale: 2
     t.datetime "created_at", null: false
     t.string "description"
     t.integer "invoice_id", null: false
+    t.decimal "per_cost", precision: 10, scale: 2
     t.integer "quantity"
     t.datetime "updated_at", null: false
     t.index ["invoice_id"], name: "index_invoice_items_on_invoice_id"
