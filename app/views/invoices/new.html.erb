@@ -1,22 +1,9 @@
-<div class="min-h-screen flex md:flex-row">
-    <div class="w-full md:w-1/5 bg-[#272754] text-white p-8 flex flex-col justify-between">
-        <div>
-            <%= link_to root_path do %>
-                <%= image_tag "Name_Only_White.png", class: "mt-8", alt: "Company Logo" %>
-            <% end %>
-            <p class="mt-2 text-md text-center">Invoice Manager</p>
-        </div>
-    
-        <div class="text-center mb-8">
-            <%= link_to "Back to Invoices", invoices_path,
-            class: "font-semibold pb-1 border-b-2 border-transparent hover:border-white transition-colors duration-300" %>
-        </div>
-    </div>
-    <div class="w-full md:w-4/5 bg-[#EFEFFF] p-8 md:p-12">
-        <div class="max-w-2xl mx-auto bg-white p-4">
-            <h1 class="font-semibold text-3xl text-[#373754] mb-4">New Invoice</h1>
+<% content_for :sidebar_footer do %>
+  <%= link_to "Back to Invoices", invoices_path,
+      class: "font-semibold pb-1 border-b-2 border-transparent hover:border-white transition-colors duration-300" %>
+<% end %>
 
-            <%= render "form", invoice: @invoice %>
-        </div>
-    </div>
+<div class="max-w-2xl mx-auto bg-white p-6 rounded shadow-sm">
+    <h1 class="font-semibold text-3xl text-[#373754] mb-4">New Invoice</h1>
+    <%= render "form", invoice: @invoice %>
 </div>

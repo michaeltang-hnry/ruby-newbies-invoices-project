@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Ruby Newbies Invoices Project" %></title>
+    <title><%= content_for(:title) || "Hnry Invoice Manager" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Ruby Newbies Invoices Project">
+    <meta name="application-name" content="Hnry Invoice Manager">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -28,6 +28,25 @@
   </head>
 
   <body class="font-sans antialiased">
-    <%= yield %>
+    <div class="min-h-screen flex md:flex-row">
+        
+        <div class="w-full md:w-1/5 bg-[#272754] text-white p-8 flex flex-col justify-between">
+            <div>
+                <%= link_to root_path do %>
+                    <%= image_tag "Name_Only_White.png", class: "mt-8", alt: "Company Logo" %>
+                <% end %>
+                <p class="mt-2 text-md text-center">Invoice Manager</p>
+            </div>
+        
+            <div class="text-center mb-8">
+                <%= yield :sidebar_footer %>
+            </div>
+        </div>
+
+        <div class="w-full md:w-4/5 bg-[#EFEFFF] p-8 md:p-12">
+            <%= yield %>
+        </div>
+
+    </div>
   </body>
 </html>

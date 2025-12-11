@@ -1,4 +1,5 @@
 class InvoicesController < ApplicationController
+    layout "dashboard"
     def index
         @invoices = Invoice.order(created_at: :desc)
     end
