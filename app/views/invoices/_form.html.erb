@@ -1,0 +1,18 @@
+<%= form_with(model: invoice, local: true) do |form| %>
+    <h3>Clients</h3>
+
+
+
+
+    <h3>Invoice Items</h3>
+    <div id="invoice-items">
+        <%= form.fields_for :invoice_items do |item_form| %>
+            <%= render "invoice_item_fields", f: item_form %>
+        <% end %>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <%= form.submit "Create Invoice" %>
+    </div>
+
+<% end %>
