@@ -1,18 +1,28 @@
-<%= form_with(model: invoice, local: true) do |form| %>
-    <h3>Clients</h3>
+<%= form_with(model: invoice, local: true, class: "flex flex-col gap-6 text-[#273754]") do |form| %>
+    <div class="bg-white p-6 rounded-lg shadow border border-gray-200">
+        <%= form.label :client_id, "Client", class: "block text-sm font-semibold mb-2" %>
+        
+        <%= form.collection_select :client_id, Client.all, :id, :name, 
+            { prompt: "Select a Client" }, 
+            { class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-[#273754] focus:ring-[#273754] sm:text-sm p-3" } 
+        %>
+    </div>
+    
+    <%# pick client... %>
+    <%# select input Select a client %>
 
-
-
-
-    <h3>Invoice Items</h3>
-    <div id="invoice-items">
-        <%= form.fields_for :invoice_items do |item_form| %>
-            <%= render "invoice_item_fields", f: item_form %>
-        <% end %>
+    <div class="bg-white p-6 rounded-lg shadow border border-gray-200">
+        <h3>Invoice Items</h3>
+        <div id="invoice-items">
+            <%= form.fields_for :invoice_items do |item_form| %>
+                <%= render "invoice_item_fields", f: item_form %>
+            <% end %>
+        </div>
     </div>
 
-    <div style="margin-top: 20px;">
-        <%= form.submit "Create Invoice" %>
+    <div class="flex justify-end mt-auto">
+        <%= form.submit "Create Invoice",
+        class: "font-semibold pb-1 border-b-2 border-transparent hover:border-[#273754] transition-colours duration-300" %>
     </div>
 
 <% end %>
