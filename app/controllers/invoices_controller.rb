@@ -28,7 +28,7 @@ class InvoicesController < ApplicationController
         params.require(:invoice).permit(
             :client_id,
             :identifier,
-            invoice_items_attributes: [:description, :quantity, :per_cost, :_destroy]
+            invoice_items_attributes: [ :description, :quantity, :per_cost, :_destroy ]
         )
     end
 end
