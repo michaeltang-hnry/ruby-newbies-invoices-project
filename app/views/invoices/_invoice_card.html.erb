@@ -1,0 +1,26 @@
+<%= link_to invoice_path(invoice), class: "block group" do %>    
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 flex justify-between items-center transition hover:shadow-md hover:border-[#373754]">
+        <div>
+            <div class="flex items-center gap-3 mb-1">
+                <span class="font-bold text-lg text-[#373754]">
+                    Invoice #<%= invoice.identifier %>
+                </span>
+                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+                    <%= invoice.created_at.strftime("%b %d") %>
+                </span>
+            </div>
+            <div class="text-gray-500 font-medium">
+                <%= invoice.client&.name || "No Client" %>
+            </div>
+        </div>
+
+        <div class="text-right">
+            <div class="text-xl font-bold text-green-600">
+                $<%= number_with_precision(invoice.total, precision: 2) %>
+            </div>
+            <div class="text-xs text-gray-400 group-hover:text-[#373754] transition mt-1">
+                View Details &rarr;
+            </div>
+        </div>
+    </div>
+<% end %>
