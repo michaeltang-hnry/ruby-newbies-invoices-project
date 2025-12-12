@@ -5,7 +5,7 @@ class InvoicesController < ApplicationController
     end
 
     def show
-        @invoice = Invoice.find_by!(identifier: params[identifier])
+        @invoice = Invoice.find_by!(identifier: params[:identifier])
     end
 
     def new

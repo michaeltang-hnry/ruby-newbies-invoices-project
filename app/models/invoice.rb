@@ -9,6 +9,10 @@ class Invoice < ApplicationRecord
     before_validation :generate_identifier, on: :create
     before_save :calculate_cost_total
 
+    def to_param
+        identifier
+    end
+
     private
 
     def generate_identifier
