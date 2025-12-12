@@ -28,9 +28,9 @@
   </head>
 
   <body class="font-sans antialiased">
-    <div class="min-h-screen flex md:flex-row">
+    <div class="h-screen flex md:flex-row overflow-hidden">
         
-        <div class="w-full md:w-1/5 bg-[#272754] text-white p-8 flex flex-col justify-between">
+        <div class="w-full md:w-1/5 bg-[#272754] text-white p-8 flex flex-col justify-between flex-shrink-0 overflow-y-auto">
             <div>
                 <%= link_to root_path do %>
                     <%= image_tag "Name_Only_White.png", class: "mt-8", alt: "Company Logo" %>
@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <div class="w-full md:w-4/5 bg-[#EFEFFF] p-8 md:p-12">
+        <div class="w-full md:w-4/5 bg-[#EFEFFF] p-8 md:p-12 overflow-y-auto">
             <%= yield %>
         </div>
 
