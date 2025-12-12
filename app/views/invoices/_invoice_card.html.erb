@@ -9,7 +9,7 @@
                     <%= invoice.created_at.strftime("%b %d") %>
                 </span>
             </div>
-            <div class="text-[#5D5096] font-regular">
+            <div class="text-gray-500 font-regular">
                 <%= invoice.client&.name || "No Client" %>
             </div>
         </div>
@@ -18,7 +18,7 @@
             <div class="text-xl font-bold text-[#33B082]">
                 $<%= number_with_precision(invoice.total, precision: 2) %>
             </div>
-            <div class="text-xs text-[#5D5096] group-hover:text-[#272753] transition mt-1">
+            <div class="text-xs text-gray-500 group-hover:text-[#272753] transition mt-1">
                 View Details &rarr;
             </div>
         </div>
