@@ -14,7 +14,7 @@ class Invoice < ApplicationRecord
     def generate_identifier
         return if identifier.present?
 
-        self.identifier = "INV-#{SecureRandom.urlsafe_base64(10)}"
+        self.identifier = "#{SecureRandom.urlsafe_base64(10)}"
     end
 
     def calculate_cost_total
